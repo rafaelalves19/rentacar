@@ -1,0 +1,108 @@
+//@tailwind components;
+
+@tailwind base;
+@tailwind utilities;
+
+@import "/styles/normalize";
+@import "/styles/utils";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+
+$blue: #025464;
+$orange: #e57c23;
+$white: #f8f1f1;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth !important;
+  font-size: 10px;
+}
+
+body {
+  font-family: Montserrat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+  background-color: $white;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border-radius: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+.active-fleet {
+  background-color: $white;
+  color: $orange;
+}
+
+td {
+  padding: 10px;
+  margin: 10px;
+  border-right: 2px solid $blue;
+  width: 50%;
+}
+
+tr {
+  border: 2px $blue solid;
+}
+
+.active-fleet {
+  background: $orange;
+  color: #f8f1f1;
+}
+
+.active-faq {
+  background: $orange;
+  color: $white;
+  border: 1px solid #b6651e;
+
+  span {
+    color: $blue;
+  }
+}
+
+//Transition on Faq
+
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+}
+
+.accordion-content[aria-hidden="false"] {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content > div {
+  overflow: hidden;
+}
+
+::backdrop {
+  --color-backdrop: red;
+}
+
+dialog::backdrop {
+  background-color: var(--color-backdrop);
+}
