@@ -45,7 +45,7 @@ const Hero = () => {
               width={0}
               height={0}
               sizes="100vw"
-              src="/images/heroCar.png"
+              src="/images/cars/heroCar.png"
               alt="orange car"
               className="w-[600px]"
             />
