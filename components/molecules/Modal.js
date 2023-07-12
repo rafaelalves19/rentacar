@@ -33,7 +33,7 @@ const Modal = ({
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 "
+        className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 overflow-x-hidden"
       >
         <div className="p-1 text-16 ">
           <div className="flex w-full text-24 uppercase font-bold p-8 bg-[#E57C23] text-[#f8f1f1] justify-between">
