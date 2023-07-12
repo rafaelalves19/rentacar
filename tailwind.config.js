@@ -15,8 +15,6 @@ module.exports = {
       "fix-hover": { raw: "(hover: hover) and (pointer: fine)" },
     },
 
-    
-
     fontSize: {
       10: "1rem",
       11: "1.1rem",
@@ -58,6 +56,7 @@ module.exports = {
       140: "14rem",
       150: "15rem",
     },
+
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

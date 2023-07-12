@@ -36,14 +36,16 @@ const Fleet = ({ fleet }) => {
         </motion.div>
 
         <div className="grid grid-cols-2 gap-12 640:gap-4 640:grid-cols-12 ">
-          <ul className="text-18 font-semibold text-[#F8F1F1] cursor-pointer col-span-2 640:col-span-12 1024:col-span-3">
+          <motion.ul
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+            className="text-18 font-semibold text-[#F8F1F1] cursor-pointer col-span-2 640:col-span-12 1024:col-span-3"
+          >
             {fleet.map((car, i) => {
               return (
-                <motion.li
-                  initial={{ x: -50, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+                <li
                   onClick={() => toggle(i)}
                   key={i}
                   className={`w-full mb-4 p-8 hover:bg-[#E57C23] rounded-md border-2 border-[#E57C23] text-[#E57C23] hover:text-[#F8F1F1] bg-[#F8F1F1] transition-all ${
@@ -54,10 +56,10 @@ const Fleet = ({ fleet }) => {
                   ${car.brand} 
                   ${car.model}
                   `}
-                </motion.li>
+                </li>
               );
             })}
-          </ul>
+          </motion.ul>
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

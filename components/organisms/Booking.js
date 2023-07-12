@@ -2,24 +2,25 @@ import { useState } from "react";
 import { Calendar, Car, Pin } from "../atoms/Icons";
 import Container from "../layout/Container";
 import Modal from "../molecules/Modal";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Booking = () => {
+  const [formCar, setFormCar] = useState("");
+  const [formPickCity, setFormPickCity] = useState("");
+  const [formDropCity, setFormDropCity] = useState("");
+  const [formPickDate, setFormPickDate] = useState("");
+  const [formDropDate, setFormDropDate] = useState("");
+
+  // console.log(formCar);
+  //console.log(formPickCity);
+  //console.log(formDropCity);
+  //console.log(formPickDate);
+  //console.log(formDropDate);
+
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  console.log("object in", modalOpen);
-
-  const variants = {
-    initial: { y: -300, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <Container>
@@ -49,19 +50,17 @@ const Booking = () => {
             <select
               id="cars"
               name="cars"
+              value={formCar}
+              onChange={(e) => setFormCar(e.target.value)}
               className="w-full p-4 rounded-md text-16 text-gray-400 border-[1px] border-gray-400"
               required
             >
               <option value="">Select your type car</option>
-              <option value="Porto">Audi A1 S-Line</option>
-              <option value="Lisboa">VW Golf 6</option>
-              <option value="Leiria">Toyota Camry</option>
-              <option value="Viana do CasteloBMW 320 ModernLine">
-                BMW 320 ModernLine
-              </option>
-              <option value="AlgarveMercedes-Benz GLK">
-                Mercedes-Benz GLK
-              </option>
+              <option value="Audi A1 S-Line">Audi A1 S-Line</option>
+              <option value="VW Golf 6">VW Golf 6</option>
+              <option value="Toyota Camry">Toyota Camry</option>
+              <option value="BMW 320 ModernLine">BMW 320 ModernLine</option>
+              <option value="Mercedes-Benz GLK">Mercedes-Benz GLK</option>
               <option value="VW Passat CC">VW Passat CC</option>
             </select>
           </div>
@@ -73,8 +72,10 @@ const Booking = () => {
               Pick-up <span className="text-[#E57C23] ml-2">*</span>
             </label>
             <select
-              id="cars"
-              name="cars"
+              id="city"
+              name="city"
+              value={formPickCity}
+              onChange={(e) => setFormPickCity(e.target.value)}
               className="w-full p-4 rounded-md text-16 text-gray-400 border-[1px] border-gray-400"
               required
             >
@@ -95,8 +96,10 @@ const Booking = () => {
               Drop-off <span className="text-[#E57C23] ml-2">*</span>
             </label>
             <select
-              id="cars"
-              name="cars"
+              id="city"
+              name="city"
+              value={formDropCity}
+              onChange={(e) => setFormDropCity(e.target.value)}
               className="w-full p-4 rounded-md text-16 text-gray-400 border-[1px] border-gray-400"
               required
             >
@@ -120,6 +123,8 @@ const Booking = () => {
               type="date"
               id="pick"
               name="pick"
+              value={formPickDate}
+              onChange={(e) => setFormPickDate(e.target.value)}
               className="w-full p-4 rounded-md text-16 text-gray-400 border-[1px] border-gray-400"
               required
             />
@@ -135,25 +140,37 @@ const Booking = () => {
               type="date"
               id="drop"
               name="drop"
+              value={formDropDate}
+              onChange={(e) => setFormDropDate(e.target.value)}
               className="w-full p-4 rounded-md text-16 text-gray-400 border-[1px] border-gray-400"
               required
             />
           </div>
-          <div
-            onClick={openModal}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              modalOpen ? closeModal() : openModal();
+            }}
             className="w-full text-center flex items-center justify-center p-8 bg-[#E57C23] rounded-md border-2 border-[#E57C23] text-[#f8f1f1] text-18 font-bold cursor-pointer hover:text-[#E57C23] hover:bg-white transition-all shadow-[#e57e2352] shadow-lg hover:shadow-[#e57e239a]"
           >
             Search
-          </div>
+          </button>
         </form>
-        {/* {modalOpen ? (
-          <dialog className=" top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20  w-[90%]">
-            <Modal closeModal={closeModal} />
-          </dialog>
-        ) : (
-          ""
-        )} */}
       </motion.section>
+
+      <AnimatePresence initial={false} onExitComplete={() => null}>
+        {modalOpen && (
+          <Modal
+            modalOpen={openModal}
+            closeModal={closeModal}
+            formCar={formCar}
+            formDropCity={formDropCity}
+            formDropDate={formDropDate}
+            formPickCity={formPickCity}
+            formPickDate={formPickDate}
+          />
+        )}
+      </AnimatePresence>
     </Container>
   );
 };

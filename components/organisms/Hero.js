@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Check, Arrow } from "../atoms/Icons";
 import Container from "../layout/Container";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Hero = () => {
   return (

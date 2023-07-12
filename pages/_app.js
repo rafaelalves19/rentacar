@@ -88,14 +88,14 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <div className="flex flex-col items-center m-auto w-full">
         <Header />
-        <AnimatePresence initial={false} mode="wait">
+        <AnimatePresence initial={true} mode="wait">
           <motion.main
             key={router.pathname}
             transition={{ duration: 0.5 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="w-full"
+            className="w-full overflow-x-hidden"
           >
             <Component fleet={fleet} {...pageProps} />
           </motion.main>
