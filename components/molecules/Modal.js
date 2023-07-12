@@ -148,7 +148,7 @@ const Modal = ({
                 Personal information
               </h2>
               <form action="" method="dialog">
-                <div className="flex gap-4 my-8">
+                <div className="640:flex gap-4 my-8 ">
                   <div className="flex flex-col w-full gap-4">
                     <label>
                       First Name <span className="text-[#E57C23]">*</span>
@@ -173,7 +173,7 @@ const Modal = ({
                       className="bg-[#e0dfde] p-4"
                     />
                   </div>
-                  <div className="flex flex-col w-full gap-4">
+                  <div className="flex flex-col w-full gap-4 mt-4 640:mt-0">
                     <label>
                       Last Name <span className="text-[#E57C23]">*</span>
                     </label>
@@ -224,7 +224,7 @@ const Modal = ({
                     className="bg-[#e0dfde] p-4"
                   />
                 </div>
-                <div className="flex gap-4 my-8">
+                <div className="640:flex gap-4 my-8">
                   <div className="flex flex-col w-full gap-4">
                     <label>
                       City <span className="text-[#E57C23]">*</span>
@@ -238,7 +238,7 @@ const Modal = ({
                       className="bg-[#e0dfde] p-4"
                     />
                   </div>
-                  <div className="flex flex-col w-full gap-4">
+                  <div className="flex flex-col w-full gap-4 mt-4 640:mt-0">
                     <label>
                       Zip Code <span className="text-[#E57C23]">*</span>
                     </label>
