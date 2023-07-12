@@ -51,7 +51,7 @@ const Faq = () => {
   return (
     <section className="relative flex flex-col items-center text-center my-[100px] 640:my-[200px]">
       <motion.div
-        initial={{ x: -50, opacity: 0 }}
+        initial={{ x: -20, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
